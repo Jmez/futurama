@@ -1,0 +1,16 @@
+kind: pipeline
+name: futurama
+type: kubernetes
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: build
+  image: golang:latest
+  commands:
+  - go run main.go
+  when:
+    event:
+    - push
